@@ -1,5 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "../logo.svg";
+import "../styles/App.css";
+import { FaEbay } from "react-icons/fa";
 
 function App() {
   return (
@@ -17,6 +18,10 @@ function App() {
         >
           Learn React
         </a>
+        <div className="text-white">
+          <FaEbay />
+          <h1 className="text-3xl font-bold underline">Hello world!</h1>
+        </div>
       </header>
     </div>
   );
