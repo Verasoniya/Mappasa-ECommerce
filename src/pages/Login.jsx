@@ -1,29 +1,45 @@
-// import axios from "axios";
+import axios from "axios";
 import React from "react";
-// import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-import Logo from "../assets/logo.jpg";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 
-function Login() {
-  //   const navigate = useNavigate();
-  //   const [email, setEmail] = useState("");
-  //   const [password, setPassword] = useState("");
+import Logo from "../assets/logo.jpg";
 
-  //   const handleSubmit = () => {
-  //     axios
-  //       .post("", {}, {})
-  //       .then((res) => {
-  //         const { data } = res;
-  //         alert(data.message);
-  //         navigate("/");
-  //       })
-  //       .catch((err) => alert(err));
-  //   };
+function Login() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = () => {
+    axios
+      .post(
+        "http://54.151.23.147/login",
+        { email, password },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        const { data } = res;
+        localStorage.setItem("userToken", JSON.stringify(data.data.token));
+        alert(data.message);
+        navigate("/homepage");
+        console.log(data.data);
+        console.log(data.data.ID);
+        // console.log(data.data.token);
+      })
+      .catch((err) => alert(err));
+    console.log(email);
+    console.log(password);
+  };
 
   return (
-    <div className="w-full h-min min-h-screen h-auto flex flex-col justify-between p-8 bg-[#F2F2F0]">
+    <div className="w-full min-h-screen h-auto flex flex-col justify-between p-8 bg-[#F2F2F0]">
       <div className="self-center font-bold text-[#4F826F] text-3xl mb-8 md:mb-0">MAPPASA</div>
       <div className="self-center flex flex-col md:flex-row justify-between">
         <div className="flex flex-col justify-center w-full md:w-1/3 mb-12 md:mb-0">
@@ -41,12 +57,12 @@ function Login() {
               </a>
             </div>
             <div className="mb-4 font-normal">
-              <Input type="email" placeholder="Email" id="input-email" /*value={email} onChange={(e) => setEmail({ email: e.target.value })}*/ />
+              <Input type="email" placeholder="Email" id="input-email" value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div className="mb-12 font-normal">
-              <Input type="password" placeholder="Password" id="input-password" /*value={password} onChange={(e) => setPassword({ password: e.target.value })}*/ />
+              <Input type="password" placeholder="Password" id="input-password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
-            <Button label="Login" /*onClick={() => handleSubmit()} disabled={email.length === 0 || password.length === 0}*/ />
+            <Button label="Login" onClick={() => handleSubmit()} disabled={email.length === 0 || password.length === 0} />
           </div>
         </div>
       </div>
