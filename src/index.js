@@ -2,16 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/index.css";
 import reportWebVitals from "./reportWebVitals";
-import App from "./App";
-import Detailproduct from "./pages/Detailproduct";
-import Listproduct from "./pages/Listproduct";
-import Cart from "./pages/Cart";
-import Homepage from "./pages/Homepage";
-import Uploadproduct from "./pages/Uploadproduct";
-import Editproduct from "./pages/Editproduct";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-// import Layout from "./components/Layout";
 import { RoutesECommerce } from "./routes/Routes";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

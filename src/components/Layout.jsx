@@ -2,7 +2,6 @@ import React from "react";
 import Header from "./Header";
 import Category from "./Category";
 import Footer from "./Footer";
-import Shipping from "./Shipping";
 
 function Layout(props) {
   return (

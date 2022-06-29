@@ -27,11 +27,13 @@ function Login() {
       .then((res) => {
         const { data } = res;
         localStorage.setItem("userToken", JSON.stringify(data.data.token));
+        localStorage.setItem("id", data.data.ID);
+        localStorage.setItem("avatar", data.data.avatar);
         alert(data.message);
         navigate("/homepage");
         console.log(data.data);
         console.log(data.data.ID);
-        // console.log(data.data.token);
+        console.log(data.data.token);
       })
       .catch((err) => alert(err));
     console.log(email);
