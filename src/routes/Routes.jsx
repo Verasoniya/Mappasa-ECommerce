@@ -10,6 +10,8 @@ import Cart from "../pages/Cart";
 import Uploadproduct from "../pages/Uploadproduct";
 import Listproduct from "../pages/Listproduct";
 import Editproduct from "../pages/Editproduct";
+import Editprofile from "../pages/Editprofile";
+import Detailproduct from "../pages/Detailproduct";
 
 axios.defaults.baseURL = "http://54.151.23.147/";
 
@@ -36,6 +38,10 @@ const RoutesECommerce = () => {
             <Route path="/upload-product" element={<Uploadproduct />} />
             <Route path="/list-product-user" element={<Listproduct />} />
             <Route path="/edit/:edit_id" element={<Editproduct />} />
+            <Route path="/list-product-user" element={<Uploadproduct />} />
+            <Route path="/editprofile" element={<Editprofile />} />
+            <Route path="/editproduct" element={<Editproduct />} />
+            <Route path="/detailproduct" element={<Detailproduct />} />
             <Route
               path="*"
               element={
