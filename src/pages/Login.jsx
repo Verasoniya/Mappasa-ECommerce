@@ -66,7 +66,7 @@ function Login() {
               <p className="text-center text-md">Masuk ke akunmu</p>
               <div className="flex justify-center mb-8 text-sm">
                 <p>belum punya akun Mappasa?</p>
-                <a href="/" className="text-[#4F826F] ml-2">
+                <a href="/register" className="text-[#4F826F] ml-2">
                   daftar
                 </a>
               </div>

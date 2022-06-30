@@ -27,7 +27,8 @@ function Header() {
     localStorage.removeItem("token");
     localStorage.removeItem("id");
     localStorage.removeItem("avatar");
-    window.location.reload(true);
+    // window.location.reload(true);
+    // navigate("/homepage");
   };
 
   const handleLogin = () => {
@@ -37,7 +38,7 @@ function Header() {
     navigate("/register");
   };
   const handleCart = () => {
-    navigate("/cart");
+    navigate("/list-product-user");
   };
   const handleUploadProduct = () => {
     navigate("/upload-product");
