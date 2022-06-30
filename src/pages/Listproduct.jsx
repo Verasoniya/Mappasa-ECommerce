@@ -46,20 +46,18 @@ function Listproduct() {
 
   return (
     <Layout>
-      <div className="grid grid-flow-row auto-rows-max w-full my-8 mx-8 gap-6 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 justify-center">
-        <div className="grid grid-flow-row auto-rows-max w-full justify-center mb-8">
-          {data.map((item) => (
-            <CardListProduct
-              key={item.id}
-              imageItem={item.product_picture}
-              productTitle={item.product_name}
-              productPrice={item.price}
-              onClickAddCart={() => handleAddCart(item.id)}
-              onClickEditProduct={() => navigate(`/edit/${item.id}`)}
-              onClickDelProduct={() => handleDelMyProduct(item)}
-            />
-          ))}
-        </div>
+      <div className="grid grid-flow-row auto-rows-max w-full my-8 mx-8 gap-6 grid-cols-2 lg:grid-cols-2 2xl:grid-cols-4 justify-center">
+        {data.map((item) => (
+          <CardListProduct
+            key={item.id}
+            imageItem={item.product_picture}
+            productTitle={item.product_name}
+            productPrice={item.price}
+            onClickAddCart={() => handleAddCart(item.id)}
+            onClickEditProduct={() => navigate(`/edit/${item.id}`)}
+            onClickDelProduct={() => handleDelMyProduct(item)}
+          />
+        ))}
       </div>
     </Layout>
   );

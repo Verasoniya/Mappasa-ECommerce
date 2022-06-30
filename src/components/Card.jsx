@@ -75,7 +75,7 @@ const CardDetailCart = (props) => {
 
 const CardListProduct = (props) => {
   return (
-    <div className="container grow p-2 lg:p-4 flex justify-center bg-white border-2 border-[#4F826F]">
+    <div className="container grow p-2 lg:p-2 mb-4 flex justify-center bg-white border-2 border-[#4F826F]">
       <div className="flex flex-col lg:flex-row p-2">
         <img className="w-full" src={props.imageItem ? props.imageItem : "https://via.placeholder.com/500?text=No+Image"} alt={props.imageItem} />
         <div className="flex flex-col justify-between ml-0 lg:ml-6">
