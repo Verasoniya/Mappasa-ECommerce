@@ -7,13 +7,16 @@ import Homepage from "../pages/Homepage";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import Cart from "../pages/Cart";
+import Uploadproduct from "../pages/Uploadproduct";
+
+axios.defaults.baseURL = "http://54.151.23.147/";
 
 const RoutesECommerce = () => {
   const [token, setToken] = useState(null);
-  const jwtToken = useMemo(() => ({ token, setToken }, [token]));
+  const jwtToken = useMemo(() => ({ token, setToken }), [token]);
 
   useEffect(() => {
-    const getToken = localStorage.getItem("userToken") || "0";
+    const getToken = localStorage.getItem("token") || "0";
     setToken(getToken);
     axios.defaults.headers.common["Authorization"] = `Bearer ${getToken}`;
   }, [token]);
@@ -28,6 +31,8 @@ const RoutesECommerce = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/upload-product" element={<Uploadproduct />} />
+            <Route path="/list-product-user" element={<Uploadproduct />} />
             <Route
               path="*"
               element={
@@ -40,24 +45,6 @@ const RoutesECommerce = () => {
         </BrowserRouter>
       </TokenContext.Provider>
     );
-  } else {
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/homepage" element={<Homepage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route
-          path="*"
-          element={
-            <main style={{ padding: "4rem" }}>
-              <p>Sorry! There's nothing here!</p>
-            </main>
-          }
-        />
-      </Routes>
-    </BrowserRouter>;
   }
 };
 
